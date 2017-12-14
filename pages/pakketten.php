@@ -1,3 +1,8 @@
+<?php
+    $blog = new Package();
+    $packages = $blog->readPackages();
+
+?>
 <style>
     .package {
         background-color: white;
@@ -14,17 +19,24 @@
 <div class="row">
     <div class="col">
         <p class="package package_mt">
-            <a href="/betaalpagina?packages=1">Hosting Basic</a>
+            <a href="/betaalpagina?packages=<?= $packages[0]['package_id']; ?>"><?= $packages[0]['name']; ?></a>
+            <br>
+            PRIJS: <?= $packages[0]['price']; ?>
         </p>
     </div>
     <div class="col">
         <p class="package">
-            <a href="/betaalpagina?packages=2">Hosting Pro</a>
+            <a href="/betaalpagina?packages=<?= $packages[1]['package_id']; ?>"><?= $packages[1]['name']; ?></a>
+            <br>
+            PRIJS: <?= $packages[1]['price']; ?>
         </p>
     </div>
     <div class="col">
         <p class="package package_mt">
-            <a href="/betaalpagina?packages=3">Hosting Pro XL</a>
+            <a href="/betaalpagina?packages=<?= $packages[2]['package_id']; ?>"><?= $packages[2]['name']; ?></a>
+            <br>
+            PRIJS: <?= $packages[2]['price']; ?>
+
         </p>
     </div>
 </div>
