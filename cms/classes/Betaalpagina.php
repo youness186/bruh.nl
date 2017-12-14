@@ -33,9 +33,13 @@ class Betaalpagina extends Database
         }
 
         // Haalt de value 'company_name' uit de arrays als de gebruiker een consument is
-        if ($data['user_type'] === '0' && empty($data['company_name'])) {
+        if ($data['user_type'] === '0') {
             unset($fields['company_name']);
             unset($data['company_name']);
+            unset($fields['gender']);
+            unset($data['gender']);
+            unset($fields['name']);
+            unset($data['name']);
         }
 
         $keys = implode('`, `', $fields);
@@ -43,6 +47,7 @@ class Betaalpagina extends Database
 
         $current_date = date('Y-m-d H:i:s');
         $next_year_date = date('Y-m-d H:i:s', strtotime('+1 years'));
-        return $this->query("INSERT INTO `users` (`{$keys}`, `role`, `start_package`, `end_package`) VALUES ('{$values}', 3, '$current_date', '$next_year_date')");
+        print_r("INSERT INTO `users` (`{$keys}`, `role`, `start_package`, `end_package`) VALUES ('{$values}', 3, '$current_date', '$next_year_date')");
+//        return $this->query("INSERT INTO `users` (`{$keys}`, `role`, `start_package`, `end_package`) VALUES ('{$values}', 3, '$current_date', '$next_year_date')");
     }
 }

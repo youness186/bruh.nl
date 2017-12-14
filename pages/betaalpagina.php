@@ -44,7 +44,7 @@
     </div>
     <div class="form-group row">
         <label class="col-3 col-form-label">Aanhef</label>
-        <div class="col-9">
+        <div class="col-9" id="gender">
             <label class="custom-control custom-radio">
                 <input name="gender" type="radio" class="custom-control-input" value="0" required>
                 <span class="custom-control-indicator"></span>
@@ -64,15 +64,15 @@
         </div>
     </div>
     <div class="form-group row">
-        <label for="password" class="col-3 col-form-label">Wachtwoord</label>
-        <div class="col-9">
-            <input class="form-control" type="password" id="password" name="password" required>
-        </div>
-    </div>
-    <div class="form-group row">
         <label for="email" class="col-3 col-form-label">Email</label>
         <div class="col-9">
             <input class="form-control" type="text" id="email" name="email" required>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="password" class="col-3 col-form-label">Wachtwoord</label>
+        <div class="col-9">
+            <input class="form-control" type="password" id="password" name="password" required>
         </div>
     </div>
     <div class="form-group row">
@@ -109,25 +109,22 @@
 </form>
 <script>
     document.addEventListener("DOMContentLoaded", function() {
-        const url = new URL(window.location.href);
-        const c = url.searchParams.get('packages');
-        if (c !== null)
-            $('#package_id').val(c).attr('readonly', true);
+        const packageURL = new URL(window.location.href).searchParams.get('packages');
+        if (packageURL) {
+            $('#package_id').val(packageURL).attr('readonly', true);
+        }
 
+        $('#company_name').parents('.form-group').hide().end().attr('required', false);
 
-        // Het Bedrijfsnaam veld verbergen als Consument in de
-        // dropdown geselecteerd is en verwijderd de attribute 'required'
-        const company_name = $('#company_name');
-        company_name.parents('.form-group').toggle();
-        company_name.removeAttr('required');
+        function isRequired(field) {
+            field.attr('required', (!field.attr('required')));
+            field.parents('.form-group').toggle();
+        }
+
         $('#user_type').change(function () {
-            if (company_name.attr('required')) {
-                company_name.removeAttr('required');
-            } else {
-                company_name.attr('required', true);
-            }
-
-            $('#company_name').parents('.form-group').toggle();
+            isRequired($('#gender').find('input'));
+            isRequired($('#name'));
+            isRequired($('#company_name'));
         });
     });
 </script>
