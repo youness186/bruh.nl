@@ -36,7 +36,6 @@
             <a href="/betaalpagina?packages=<?= $packages[2]['package_id']; ?>"><?= $packages[2]['name']; ?></a>
             <br>
             PRIJS: <?= $packages[2]['price']; ?>
-
         </p>
     </div>
 </div>
