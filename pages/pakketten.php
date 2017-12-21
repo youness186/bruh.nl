@@ -1,7 +1,6 @@
 <?php
-    $blog = new Package();
-    $packages = $blog->readPackages();
-
+    $packages_obj = new Package();
+    $packages = $packages_obj->readPackages();
 ?>
 <style>
     .package {
