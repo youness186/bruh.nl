@@ -2,19 +2,6 @@
     $packages_obj = new Package();
     $packages = $packages_obj->readPackages();
 ?>
-<style>
-    .package {
-        background-color: white;
-        border: 1px solid black;
-        /*box-shadow: 0 0 30px 0 rgba(0,0,0,0.2);*/
-        color: #333;
-        text-align: center;
-        min-height: 250px;
-    }
-    .package_mt {
-        margin-top: 10px;
-    }
-</style>
 <div class="row">
     <div class="col">
         <p class="package package_mt">
