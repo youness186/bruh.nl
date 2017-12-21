@@ -11,7 +11,7 @@ class Blog extends Database
             if ($i >= $limit) break;
             $content .= "<li class='list-group-item'>";
             $content .= "<h3>" . htmlspecialchars($row["title"]) . "</h3>";
-            $content .= "<span>" . htmlspecialchars($row["date"]) . "</span><br>";
+            $content .= "<span><strong>" . htmlspecialchars($row["date"]) . "</strong></span><br>";
             $content .= "<span>" . htmlspecialchars($row["content"]) . "</span>";
             $content .= "</li>";
             $i++;
