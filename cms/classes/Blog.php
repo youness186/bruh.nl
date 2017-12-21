@@ -10,7 +10,7 @@ class Blog extends Database
         while ($row = $result->fetch_assoc()) {
             if ($i >= $limit) break;
             $content .= "<li class='list-group-item'>";
-            $content .= "<span>" . htmlspecialchars($row["title"]) . "</span>";
+            $content .= "<h3>" . htmlspecialchars($row["title"]) . "</h3>";
             $content .= "<span>" . htmlspecialchars($row["date"]) . "</span><br>";
             $content .= "<span>" . htmlspecialchars($row["content"]) . "</span>";
             $content .= "</li>";

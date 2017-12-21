@@ -1,6 +1,8 @@
 <?php
 $blog = new Blog();
 $limit = "3";
+$blog = new Package();
+$packages = $blog->readPackages();
 ?>
 <div class="row">
     <div class="col">
