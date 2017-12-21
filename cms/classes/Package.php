@@ -3,9 +3,9 @@
 class Package extends Database
 {
 
-    public function addPackage()
+    public function addPackage($titel, $info, $prijs, $zichtbaar)
     {
-
+        return $this->query("INSERT INTO `packages` (`name`, `info`, `price`, `active`) VALUES ('{$titel}', '{$info}', '{$prijs}', '{$zichtbaar}');");
     }
 
     public function checkDate()
