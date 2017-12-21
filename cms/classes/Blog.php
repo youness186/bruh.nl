@@ -9,7 +9,7 @@ class Blog extends Database
         $result = $this->query("SELECT * FROM `blog` WHERE `archived` = 0 ORDER BY `date` LIMIT " . intval($limit));
         while ($row = $result->fetch_assoc()) {
             if ($i >= $limit) break;
-            $content .= "<li>";
+            $content .= "<li class='list-group-item'>";
             $content .= "<span>" . htmlspecialchars($row["title"]) . "</span>";
             $content .= "<span>" . htmlspecialchars($row["date"]) . "</span><br>";
             $content .= "<span>" . htmlspecialchars($row["content"]) . "</span>";
