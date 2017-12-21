@@ -36,10 +36,10 @@
             </select>
         </div>
     </div>
-    <div class="form-group row">
+    <div class="form-group row" style="display: none;">
         <label for="company_name" class="col-3 col-form-label">Bedrijfsnaam</label>
         <div class="col-9">
-            <input class="form-control" type="text" id="company_name" name="company_name" required>
+            <input class="form-control" type="text" id="company_name" name="company_name">
         </div>
     </div>
     <div class="form-group row">
@@ -66,7 +66,7 @@
     <div class="form-group row">
         <label for="email" class="col-3 col-form-label">Email</label>
         <div class="col-9">
-            <input class="form-control" type="text" id="email" name="email" required>
+            <input class="form-control" type="email" id="email" name="email" required>
         </div>
     </div>
     <div class="form-group row">
@@ -108,23 +108,34 @@
     <input class="btn btn-primary float-right" type="submit" value="Verzenden">
 </form>
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener("DOMContentLoaded", () => {
+        // Haalt pakket ID uit de URL en selecteer het pakket gelinkt aan die ID
         const packageURL = new URL(window.location.href).searchParams.get('packages');
-        if (packageURL) {
-            $('#package_id').val(packageURL).attr('readonly', true);
-        }
+        if (packageURL) $('#package_id').val(packageURL).attr('readonly', true);
 
-        $('#company_name').parents('.form-group').hide().end().attr('required', false);
+        $('#user_type').change(() => {
+            // $('#user_type').val();
+            // const fields = $('#gender input, #name, #company_name');
+            // fields.each(function (index, value) {
+            //     // console.log($(field).attr('required'));
+            //     const field = $(value);
+            //
+            //
+            //     field.attr('required', (!field.attr('required')));
+            //     field.parents('.form-group').toggle();
+            // });
 
-        function isRequired(field) {
-            field.attr('required', (!field.attr('required')));
-            field.parents('.form-group').toggle();
-        }
 
-        $('#user_type').change(function () {
-            isRequired($('#gender').find('input'));
-            isRequired($('#name'));
-            isRequired($('#company_name'));
+            const toggleableFields = [
+                $('#gender').find('input'),
+                $('#name'),
+                $('#company_name')
+            ];
+
+            toggleableFields.forEach((field) => {
+                field.attr('required', (!field.attr('required')))
+                    .parents('.form-group').toggle();
+            });
         });
     });
 </script>
