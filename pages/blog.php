@@ -2,6 +2,6 @@
     $blog = new Blog();
     $limit = "999";
 ?>
-<ul>
+<ul class="list-group">
     <?= $blog->ShowArticlesFE($limit); ?>
 </ul>

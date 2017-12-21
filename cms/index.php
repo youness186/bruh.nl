@@ -39,7 +39,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item"><a class="nav-link" href="home">Pakketten</a></li>
+                <li class="nav-item"><a class="nav-link" href="home">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="users">Gebruikers</a></li>
                 <li class="nav-item"><a class="nav-link" href="blog">Blog</a></li>
                 <li class="nav-item"><a class="nav-link" href="packages">Pakketten</a></li>
