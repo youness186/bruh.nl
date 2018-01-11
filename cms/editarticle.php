@@ -1,12 +1,12 @@
 <?php
     $blog = new Blog();
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_GET['blog_id'])) {
-        if ($blog->editArticle($_POST['title'], $_POST['content'], $_POST['source'], $_GET['blog_id'])) {
+        if ($blog->editArticle($_POST['title'], $_POST['content'], $_POST['source'], $_POST['archived'], $_GET['blog_id'])) {
             header("Location: blog");
         }
     }
 
-    $result = $blog->query("SELECT `title` , `content` , `source` FROM `blog` WHERE `blog_id` = '{$_GET['blog_id']}';");
+    $result = $blog->query("SELECT `title` , `content` , `source`,  `archived` FROM `blog` WHERE `blog_id` = '{$_GET['blog_id']}';");
     $items = $result->fetch_assoc();
 ?>
 <form action="" method="post">
@@ -28,8 +28,30 @@
             <input class="form-control" type="text" id="source" name="source" value="<?= $items['source']; ?>" placeholder="Bron" required>
         </div>
     </div>
+    <div class="form-group row">
+        <label for="archived" class="col-2 col-form-label">Gearchiveerd:</label>
+        <div class="col-10" id="archived">
+            <label class="custom-control custom-radio">
+                <input name="archived" type="radio" class="custom-control-input" value="0" required>
+                <span class="custom-control-indicator"></span>
+                <span class="custom-control-description">Nee</span>
+            </label>
+            <label class="custom-control custom-radio">
+                <input name="archived" type="radio" class="custom-control-input" value="1" required>
+                <span class="custom-control-indicator"></span>
+                <span class="custom-control-description">Ja</span>
+            </label>
+        </div>
+    </div>
     <button onclick="location.href = 'blog';" type="button" class="btn btn-default">
         <span class="glyphicon glyphicon-arrow-left"></span> Terug
     </button>
     <button type="submit" class="btn btn-primary">Sla op</button>
 </form>
+<script>
+    const archived = '<?= $items['archived'] ?>';
+    $('#archived').find('input').eq(archived).prop('checked', true);
+
+
+    // VOLGENDE KEER AANPASSEN VAN ARCHIVEREN MOGELIJK MAKEN
+</script>

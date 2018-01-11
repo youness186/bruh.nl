@@ -36,4 +36,11 @@ class Database
     {
         return mysqli_real_escape_string($this->_conn, $variable);
     }
+
+    public function addDots($string, $limit = 50)
+    {
+        return (strlen($string) > $limit)
+            ? substr($string, 0, $limit) . '...'
+            : $string;
+    }
 }
