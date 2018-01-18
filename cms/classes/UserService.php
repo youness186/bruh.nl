@@ -34,26 +34,6 @@ class UserService extends Database
         return true;
     }
 
-    public function resetPassword()
-    {
-
-    }
-
-    public function register()
-    {
-
-    }
-
-    public function editUser()
-    {
-
-    }
-
-    public function deleteUser()
-    {
-
-    }
-
     public function isLoggedIn($data)
     {
         if (isset($data['user_id']) && isset($data['token'])) {
@@ -63,13 +43,7 @@ class UserService extends Database
                 return true;
             }
         }
-//        header('Location: login');
         return false;
-    }
-
-    public function permissions()
-    {
-
     }
 }
 

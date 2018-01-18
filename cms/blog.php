@@ -25,7 +25,7 @@
         </tr>
         </thead>
         <tbody>
-            <?= $blog->showArticlesBE() ?>
+            <?= $blog->showArticles() ?>
         </tbody>
     </table>
 </form>

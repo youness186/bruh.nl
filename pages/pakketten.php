@@ -1,5 +1,5 @@
 <?php
-    $packages_obj = new Package();
+    $packages_obj = new FEPackage();
     $packages = $packages_obj->readPackages();
 ?>
 <div class="row">

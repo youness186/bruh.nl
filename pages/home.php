@@ -1,7 +1,7 @@
 <?php
-$blog = new Blog();
+$blog = new FEBlog();
 $limit = "3";
-$showpackage = new Package();
+$showpackage = new FEPackage();
 $packages = $showpackage->readPackages();
 ?>
 <div class="row">

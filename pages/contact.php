@@ -1,7 +1,7 @@
 <?php
 $result = "";
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
-    $contact = new Contact();
+    $contact = new FEContact();
     $contact->contactForm($_POST);
 
 }

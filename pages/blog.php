@@ -1,5 +1,5 @@
 <?php
-    $blog = new Blog();
+    $blog = new FEBlog();
     $limit = "999";
 ?>
 <ul class="list-group">

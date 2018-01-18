@@ -23,16 +23,6 @@ class Package extends Database
         return $content;
     }
 
-    public function readPackages()
-    {
-        $result = $this->query("SELECT * FROM `packages` WHERE active = 1;");
-        $new = [];
-        while ($row = $result->fetch_assoc()) {
-           $new[] = $row;
-        }
-        return $new;
-    }
-
     public function addPackage($title, $description, $price, $active)
     {
         return $this->query("INSERT INTO `packages` (`name`, `description`, `price`, `active`) VALUES ('{$title}', '{$description}', '{$price}', '{$active}');");
