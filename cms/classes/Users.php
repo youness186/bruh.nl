@@ -2,31 +2,6 @@
 
 class Users extends Database
 {
-    public function addUser($name, $email, $password, $role)
-    {
-        $password = password_hash($password, PASSWORD_BCRYPT);
-        $this->query("INSERT INTO `users` (`name`, `email`, `password`, `role`) VALUES ('{$name}', '{$email}', '{$password}', '{$role}');");
-        header('Location: users');
-    }
-
-    public function editUser($name, $email, $password, $role, $user_id)
-    {
-        if (empty($password)) {
-            $this->query("UPDATE `users` SET `name` = '{$name}', `email` = '{$email}', `role` = '{$role}' WHERE `user_id` = '{$user_id}';");
-        } else {
-            $password = password_hash($password, PASSWORD_BCRYPT);
-            $this->query("UPDATE `users` SET `name` = '{$name}', `email` = '{$email}', `password` = '{$password}', `role` = '{$role}' WHERE `user_id` = '{$user_id}';");
-        }
-        header('Location: users');
-    }
-
-    public function deleteUser($user_id)
-    {
-        if (isset($user_id)) {
-            $this->query("DELETE FROM `users` WHERE `user_id` = '{$user_id}';");
-        }
-    }
-
     public function showUsers()
     {
         $content = '';
@@ -48,6 +23,27 @@ class Users extends Database
             $content .= "</tr>";
         }
         return $content;
+    }
+
+    public function addUser($name, $email, $password, $role)
+    {
+        $password = password_hash($password, PASSWORD_BCRYPT);
+        $this->query("INSERT INTO `users` (`name`, `email`, `password`, `role`) VALUES ('{$name}', '{$email}', '{$password}', '{$role}');");
+    }
+
+    public function editUser($name, $email, $password, $role, $user_id)
+    {
+        if (empty($password)) {
+            $this->query("UPDATE `users` SET `name` = '{$name}', `email` = '{$email}', `role` = '{$role}' WHERE `user_id` = '{$user_id}';");
+        } else {
+            $password = password_hash($password, PASSWORD_BCRYPT);
+            $this->query("UPDATE `users` SET `name` = '{$name}', `email` = '{$email}', `password` = '{$password}', `role` = '{$role}' WHERE `user_id` = '{$user_id}';");
+        }
+    }
+
+    public function deleteUser($user_id)
+    {
+        $this->query("DELETE FROM `users` WHERE `user_id` = '{$user_id}';");
     }
 }
 ?>

@@ -1,9 +1,12 @@
 <?php
     $users = new Users();
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $users->addUser($_POST['name'], $_POST['email'], $_POST['password'], $_POST['role']);
+        if ($users->addUser($_POST['name'], $_POST['email'], $_POST['password'], $_POST['role'])) {
+            header('Location: users');
+        }
     }
 ?>
+<h2>Gebruiker aanmaken</h2>
 <form action="" method="post">
     <div class="form-group row">
         <label for="name" class="col-2 col-form-label">Naam:</label>

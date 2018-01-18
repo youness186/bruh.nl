@@ -9,6 +9,7 @@
     $result = $blog->query("SELECT `title` , `content` , `source`,  `archived` FROM `blog` WHERE `blog_id` = '{$_GET['blog_id']}';");
     $items = $result->fetch_assoc();
 ?>
+<h2>Artikel aanpassen</h2>
 <form action="" method="post">
     <div class="form-group row">
         <label for="title" class="col-2 col-form-label">Titel:</label>
@@ -49,9 +50,5 @@
     <button type="submit" class="btn btn-primary">Sla op</button>
 </form>
 <script>
-    const archived = '<?= $items['archived'] ?>';
-    $('#archived').find('input').eq(archived).prop('checked', true);
-
-
-    // VOLGENDE KEER AANPASSEN VAN ARCHIVEREN MOGELIJK MAKEN
+    $('#archived').find('input').eq(<?= $items['archived'] ?>).prop('checked', true);
 </script>

@@ -6,6 +6,7 @@
         }
     }
 ?>
+<h2>Artikel aanmaken</h2>
 <form action="" method="post">
     <div class="form-group row">
         <label for="title" class="col-2 col-form-label">Titel:</label>
