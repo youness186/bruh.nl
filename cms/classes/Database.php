@@ -2,14 +2,14 @@
 
 class Database
 {
-//    private $_servername = "37.59.112.16";
-//    private $_username = "school";
-//    private $_password = "SK83sh29Ls";
-//    private $_database = "krashosting";
-    private $_servername = "127.0.0.1";
-    private $_username = "root";
-    private $_password = "root";
+    private $_servername = "37.59.112.16";
+    private $_username = "school";
+    private $_password = "SK83sh29Ls";
     private $_database = "krashosting";
+//    private $_servername = "127.0.0.1";
+//    private $_username = "root";
+//    private $_password = "root";
+//    private $_database = "krashosting";
     private $_conn;
 
     public function __construct()
